@@ -50,7 +50,6 @@ export class rateOrdinalPipe implements PipeTransform {
 
 @Injectable()
 export class AppComponent {
-  private _data: Object;
   offers = []
   response = {
     offers: []
@@ -59,7 +58,6 @@ export class AppComponent {
   constructor(private http: HttpClient) {
     this.http.get("https://stark-eyrie-83089.herokuapp.com/hotels/deals")
         .subscribe(data => {
-          this._data = data;
           this.offers = data["offers"]["Hotel"]
         },
             err => this.logError(err),

@@ -6,7 +6,7 @@
   </div>
   <div class="body">
     <div class="left-filters"> filters</div>
-    <div class="hotel-offers" *ngIf="_data">
+    <div class="hotel-offers" *ngIf="offers">
       <div class="offer"  *ngFor="let offer of offers">
         <div class="hotel-image"><img src="{{offer.hotelInfo.hotelImageUrl}}"></div>
         <div class="hotel-data">
