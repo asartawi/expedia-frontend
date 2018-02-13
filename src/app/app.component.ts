@@ -147,3 +147,6 @@ export class AppComponent {
     }
 }
 
+declare var google;
+
+
