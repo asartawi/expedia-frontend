@@ -57,6 +57,7 @@ export class AppComponent {
     priceOptions = null;
     loading = true;
     startDate = new Date();
+    location = null;
     endDate = new Date(this.startDate.getTime() + (1000 * 60 * 60 * 24));
 
     constructor(private http: HttpClient) {
@@ -140,11 +141,11 @@ export class AppComponent {
     replcaeImageLink = function (link) {
         return link.replace("_t", "_y");
 
-    }
+    };
 
     logError(err: string) {
         console.error('There was an error: ' + err);
-    }
+    };
 }
 
 declare var google;

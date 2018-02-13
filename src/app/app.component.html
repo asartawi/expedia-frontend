@@ -17,22 +17,22 @@
     <div class="left-filters">
       <div class="rating-wrapper">
         <div>Guest Rating</div>
-        <input name="guestRating" ng-control="options" (change)="onRatingChange(entry)" type="radio" [value]="5"  [(ngModel)]="guestRating" >Exceptional! 5/5<br/>
-        <input name="guestRating" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="4" [(ngModel)]="guestRating" >Very Good! 4/5 & up<br/>
-        <input name="guestRating" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="3.5" [(ngModel)]="guestRating" >Good! 3.5/5 & up<br/>
+        <input name="guestRating" ng-control="options" (change)="onRatingChange()" type="radio" [value]="5"  [(ngModel)]="guestRating" >Exceptional! 5/5<br/>
+        <input name="guestRating" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="4" [(ngModel)]="guestRating" >Very Good! 4/5 & up<br/>
+        <input name="guestRating" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="3.5" [(ngModel)]="guestRating" >Good! 3.5/5 & up<br/>
       </div>
       <div class="rating-wrapper">
         <div>Property Class</div>
 
-        <input name="starRating" ng-control="options" (change)="onRatingChange(entry)" type="radio" [value]="5"  [(ngModel)]="starRating" >
+        <input name="starRating" ng-control="options" (change)="onRatingChange()" type="radio" [value]="5"  [(ngModel)]="starRating" >
         <div class="rating">
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
       </div> 5 Stars<br/>
-        <input name="starRating" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="4" [(ngModel)]="starRating" >
+        <input name="starRating" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="4" [(ngModel)]="starRating" >
         <div class="rating">
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span>
       </div> 4 Stars<br/>
-        <input name="starRating" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="3" [(ngModel)]="starRating" >
+        <input name="starRating" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="3" [(ngModel)]="starRating" >
         <div class="rating">
         <span>☆</span><span>☆</span><span>☆</span>
       </div> 3 Stars<br/>
@@ -40,11 +40,11 @@
 
       <div class="rating-wrapper">
         <div>Price Per Night</div>
-        <input name="priceOptions" ng-control="options" (change)="onRatingChange(entry)" type="radio" [value]="1"  [(ngModel)]="priceOptions" >Less than $75<br/>
-        <input name="priceOptions" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="2" [(ngModel)]="priceOptions" >$75 to $124<br/>
-        <input name="priceOptions" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="3" [(ngModel)]="priceOptions" >$125 to $199<br/>
-        <input name="priceOptions" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="4" [(ngModel)]="priceOptions" >$200 to $299<br/>
-        <input name="priceOptions" ng-control="options"  (change)="onRatingChange(entry)" type="radio" [value]="5" [(ngModel)]="priceOptions" >Higher than $300<br/>
+        <input name="priceOptions" ng-control="options" (change)="onRatingChange()" type="radio" [value]="1"  [(ngModel)]="priceOptions" >Less than $75<br/>
+        <input name="priceOptions" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="2" [(ngModel)]="priceOptions" >$75 to $124<br/>
+        <input name="priceOptions" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="3" [(ngModel)]="priceOptions" >$125 to $199<br/>
+        <input name="priceOptions" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="4" [(ngModel)]="priceOptions" >$200 to $299<br/>
+        <input name="priceOptions" ng-control="options"  (change)="onRatingChange()" type="radio" [value]="5" [(ngModel)]="priceOptions" >Higher than $300<br/>
       </div>
     </div>
     <div class="loader" *ngIf="loading">Loading...</div>
