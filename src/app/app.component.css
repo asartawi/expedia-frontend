@@ -1,0 +1,49 @@
+.body{
+    display: flex;
+}
+
+.left-filters{
+    width: 350px;
+    min-height: 700px;
+}
+
+.hotel-offers{
+    width: calc(100% - 500px);
+}
+
+.offer{
+    padding: 30px;
+    font-size: 18px;
+    border: 1px solid;
+    border-radius: 2px;
+    border-color: #888;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.hotel-image{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.hotel-image img{
+    width: 100%;
+}
+
+.hotel-data{
+    flex-basis: auto;
+    width:30%
+}
+
+.hotel-secondary-data{
+    max-width: 50%;
+    flex-basis: auto;
+    margin-left: auto;
+    text-align: right;
+}
+
+.cross-out{
+    text-decoration: line-through;
+    color: #888;
+}
