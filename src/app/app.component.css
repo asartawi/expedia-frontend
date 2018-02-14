@@ -12,6 +12,13 @@
     margin-left: 30px;
 }
 
+.date-range-input {
+    width: 216px;
+    height: 41px;
+    border-radius: 3px;
+    text-align: center;
+}
+
 .body {
     display: flex;
 }
@@ -21,18 +28,33 @@
     min-height: 700px;
     padding-left: 10px;
 }
-.rating-wrapper{
+
+.rating-wrapper {
     padding-top: 10px;
 }
 
-.location-filter{
+.rating-wrapper input {
+    margin-right: 5px;
+}
+
+.location-filter {
     width: 216px;
-    height: 30px;
+    height: 41px;
     border-radius: 3px;
 }
 
 .hotel-offers {
-    width: calc(100% - 500px);
+    width: 100%;
+}
+
+.hotel-offers .warning {
+    font-size: 28px;
+    margin: auto;
+    text-align: center;
+    color: #0a0a0a;
+    background-color: #da8b29;
+    padding: 30px;
+    border-radius: 5px;
 }
 
 .offer {
@@ -43,6 +65,11 @@
     border-color: #888;
     margin-bottom: 10px;
     display: flex;
+}
+
+.offer:hover{
+    background-color: #ddd;
+    border-color:  #3b9eff;
 }
 
 .hotel-image {
@@ -61,6 +88,11 @@
     width: 30%
 }
 
+.hotel-destination, .hotel-location, .avg-per-night {
+    font-size: 14px;
+    color: #444;
+}
+
 .hotel-secondary-data {
     max-width: 50%;
     flex-basis: auto;
@@ -72,22 +104,24 @@
     text-decoration: line-through;
     color: #888;
 }
+
 .rating {
     unicode-bidi: bidi-override;
     direction: rtl;
     display: inline-block;
 }
+
 .rating > span {
     display: inline-block;
     position: relative;
     width: 1.1em;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
     content: "\2605";
     position: absolute;
 }
-
 
 .loader {
     font-size: 90px;
@@ -104,6 +138,7 @@
     -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
     animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 }
+
 @-webkit-keyframes load6 {
     0% {
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
@@ -126,6 +161,7 @@
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
     }
 }
+
 @keyframes load6 {
     0% {
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
@@ -148,6 +184,7 @@
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
     }
 }
+
 @-webkit-keyframes round {
     0% {
         -webkit-transform: rotate(0deg);
@@ -158,6 +195,7 @@
         transform: rotate(360deg);
     }
 }
+
 @keyframes round {
     0% {
         -webkit-transform: rotate(0deg);

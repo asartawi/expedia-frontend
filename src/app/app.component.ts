@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {Pipe, PipeTransform} from '@angular/core';
+// import * as $ from 'jquery';
 
 @Pipe({
     name: 'rateOrdinal',
@@ -56,27 +57,42 @@ export class AppComponent {
     starRating = null;
     priceOptions = null;
     loading = true;
-    startDate = new Date();
+    startDate = moment().add(1, 'days');
+    endDate = moment().add(2, 'days');
     location = null;
-    endDate = new Date(this.startDate.getTime() + (1000 * 60 * 60 * 24));
+    previousLocation = null;
 
     constructor(private http: HttpClient) {
-        function initialize() {
-            var input = document.getElementById('searchTextField');
+        let initialize = ()=> {
+            let input = document.getElementById('searchTextField');
             new google.maps.places.Autocomplete(input);
-        }
+            $('input[name="daterange"]').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD'
+                },
+                startDate: this.startDate,
+                endDate: this.endDate,
+                minDate: this.startDate
+            }, (start, end) => {
+                console.log(start.format('MM/DD/YYYY') + ' - ' + end.format('MM/DD/YYYY'));
+                this.startDate = start;
+                this.endDate = end;
+                setTimeout(() => {
+                    this.getHotelsDeals();
+                }, 100);
+
+            });
+        };
 
         google.maps.event.addDomListener(window, 'load', initialize);
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
+            navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-
-                console.log(position)
-            }, function() {
+            }, function () {
                 console.log("error")
             });
         }
@@ -89,6 +105,7 @@ export class AppComponent {
 
     getHotelsDeals = function () {
         let params = new HttpParams();
+
         if (this.location) {
             params = params.append('destinationName', this.location);
         }
@@ -101,7 +118,7 @@ export class AppComponent {
             params = params.append('minStarRating', this.starRating);
         }
         if (this.priceOptions) {
-            switch(this.priceOptions){
+            switch (this.priceOptions) {
                 case 1:
                     params = params.append('maxAverageRate', "74");
                     break;
@@ -123,11 +140,23 @@ export class AppComponent {
             }
         }
 
+        if (this.startDate) {
+            params = params.append('minTripStartDate', this.startDate.format("YYYY-MM-DD"));
+        }
+
+        if (this.endDate) {
+            var duration = moment.duration(this.endDate.diff(this.startDate));
+            var lengthOfStay = Math.floor(this.endDate.diff(this.startDate)/(3600000*24))+1+"";
+            params = params.append('lengthOfStay', lengthOfStay);
+        }
+
+
         this.loading = true;
+        this.previousLocation = this.location;
         this.http.get("https://stark-eyrie-83089.herokuapp.com/hotels/deals", {params: params})
             .subscribe(data => {
                     this.offers = data["offers"]["Hotel"];
-                    this.destination = data["offers"]["Hotel"][0]["destination"];
+                    // this.destination = data["offers"]["Hotel"][0]["destination"];
                     this.loading = false;
                 },
                 err => this.logError(err),
@@ -138,9 +167,37 @@ export class AppComponent {
         this.getHotelsDeals();
     };
 
+    onLocationChanged = function () {
+        setTimeout(() => {
+            if (document.getElementById("searchTextField")) {
+                this.location = (<HTMLInputElement>document.getElementById("searchTextField")).value;
+            }
+            if (this.previousLocation != this.location) {
+                this.getHotelsDeals();
+
+            }
+
+        }, 100);
+    };
+
     replcaeImageLink = function (link) {
         return link.replace("_t", "_y");
 
+    };
+
+    getArray = function (num) {
+      let arr= [];
+      num = +num;
+      for(let i = 0; i<num; i++){
+          console.log(i, num);
+          arr.push(i);
+      }
+
+      return arr;
+    };
+
+    decodeURL = function (url) {
+        return decodeURIComponent(url);
     };
 
     logError(err: string) {
@@ -149,5 +206,7 @@ export class AppComponent {
 }
 
 declare var google;
+declare var $;
+declare var moment;
 
 

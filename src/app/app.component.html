@@ -5,11 +5,11 @@
     </a>
     <div class="destination-wrapper">
       <div class="destination">
-        <label>Location</label>&nbsp;<input id="searchTextField" class="location-filter" type="text" [(ngModel)]="location" />
+        <label>Location</label>&nbsp;<input id="searchTextField" class="location-filter" type="text" [(ngModel)]="location" (blur)="onLocationChanged()"/>
       </div>
       <div class="date-range">
-        <div>DATES</div>
-        <div>{{startDate}}</div>
+        <label>DATES</label>
+        <input class="date-range-input" type="text" name="daterange" />
       </div>
     </div>
   </div>
@@ -50,15 +50,21 @@
     <div class="loader" *ngIf="loading">Loading...</div>
     <div class="hotel-offers" *ngIf="!loading && offers">
       <div class="offer"  *ngFor="let offer of offers">
-        <div class="hotel-image"><img src="{{replcaeImageLink(offer.hotelInfo.hotelImageUrl)}}"></div>
+        <div class="hotel-image"><a target="_blank" href="{{decodeURL(offer['hotelUrls']['hotelInfositeUrl'])}}"><img src="{{replcaeImageLink(offer.hotelInfo.hotelImageUrl)}}"></a></div>
         <div class="hotel-data">
-          <div class="hotel-name">{{offer["hotelInfo"]["hotelName"]}}</div>
+          <div class="hotel-name"><a target="_blank" href="{{decodeURL(offer['hotelUrls']['hotelInfositeUrl'])}}">{{offer["hotelInfo"]["hotelName"]}}</a></div>
+          <div class="hotel-star-rating">
+            <div class="rating">
+              <span *ngFor="let star of getArray(offer['hotelInfo']['hotelStarRating'])">☆</span>
+            </div>
+          </div>
           <div class="hotel-destination">{{offer["hotelInfo"]["hotelDestination"]}}</div>
           <div class="hotel-location">{{offer["hotelInfo"]["hotelStreetAddress"]}}</div>
         </div>
         <div class="hotel-secondary-data">
           <div class="hotel-rating">{{offer["hotelInfo"]["hotelGuestReviewRating"]}}/5 {{offer["hotelInfo"]["hotelGuestReviewRating"] | rateOrdinal}}</div>
-          <div class="hotel-rating"><span class="cross-out">${{round(offer["hotelPricingInfo"]["crossOutPriceValue"] )}}</span> ${{round(offer["hotelPricingInfo"]["totalPriceValue"] ) }}</div>
+          <div class="hotel-rating"><span class="cross-out">${{round(offer["hotelPricingInfo"]["crossOutPriceValue"] )}}</span> ${{round(offer["hotelPricingInfo"]["averagePriceValue"] ) }}</div>
+          <div class="avg-per-night">avg/night</div>
 
 
         </div>
