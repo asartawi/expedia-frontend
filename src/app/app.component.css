@@ -1,3 +1,20 @@
+.top-navigator {
+    background-color: #ddd;
+    width: 100%;
+    padding: 10px;
+}
+
+.footer {
+    background-color: #ddd;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
 .destination-wrapper {
     display: flex;
     padding: 30px 100px;
@@ -23,10 +40,19 @@
     display: flex;
 }
 
+.body-wrapper {
+    position: relative;
+}
+
 .left-filters {
     width: 350px;
     min-height: 700px;
     padding-left: 10px;
+}
+
+.filters-title {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .rating-wrapper {
@@ -45,16 +71,12 @@
 
 .hotel-offers {
     width: 100%;
+    min-height: 900px;
+    margin-bottom: 40px;
 }
 
-.hotel-offers .warning {
-    font-size: 28px;
-    margin: auto;
-    text-align: center;
-    color: #0a0a0a;
-    background-color: #da8b29;
-    padding: 30px;
-    border-radius: 5px;
+.hotel-offers.alert-warning {
+    height: 200px;
 }
 
 .offer {
@@ -67,9 +89,9 @@
     display: flex;
 }
 
-.offer:hover{
+.offer:hover {
     background-color: #ddd;
-    border-color:  #3b9eff;
+    border-color: #3b9eff;
 }
 
 .hotel-image {

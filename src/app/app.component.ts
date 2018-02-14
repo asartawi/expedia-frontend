@@ -99,10 +99,6 @@ export class AppComponent {
         this.getHotelsDeals();
     };
 
-    round = function (num) {
-        return Math.round(num);
-    };
-
     getHotelsDeals = function () {
         let params = new HttpParams();
 
@@ -163,10 +159,16 @@ export class AppComponent {
             );
     };
 
+    /**
+     * When a rating changes, we trigger the search
+     */
     onRatingChange = function () {
         this.getHotelsDeals();
     };
 
+    /**
+     * When a location changes, we trigger the search
+     */
     onLocationChanged = function () {
         setTimeout(() => {
             if (document.getElementById("searchTextField")) {
@@ -180,24 +182,43 @@ export class AppComponent {
         }, 100);
     };
 
+    /**
+     * I have noticed that images returned from the API have low resolution, then I digged more and discoverd that
+     * when I replace _t with _y in the image url I get an image with better resolution
+     * @param link
+     * @returns {string|void}
+     */
     replcaeImageLink = function (link) {
         return link.replace("_t", "_y");
-
     };
 
+    /**
+     * get array of size n
+     *
+     * @param num
+     * @returns {Array}
+     */
     getArray = function (num) {
       let arr= [];
       num = +num;
       for(let i = 0; i<num; i++){
-          console.log(i, num);
           arr.push(i);
       }
 
       return arr;
     };
 
+    /**
+     * decode the url to be used
+     * @param url
+     * @returns {string}
+     */
     decodeURL = function (url) {
         return decodeURIComponent(url);
+    };
+
+    round = function (num) {
+        return Math.round(num);
     };
 
     logError(err: string) {
