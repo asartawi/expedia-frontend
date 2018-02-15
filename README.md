@@ -1,6 +1,17 @@
 # ExpediaFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+This is the Frontend project that handles the views of Expedia hotels deals.
+
+## Project Setup
+Download Webstorm IDE or any other frontend IDE of your choice.
+Download the code from github and save it in your file system.
+Inside Webstorm choose File --> Open, navigate to the directory where you have downloaded the project and select it.
+Now you have the code ready to be altered inside an IDE.
+Install nodejs later than node 6.9.x
+Install npm later than 3.x.x
+Run the command to install angular cli: npm install -g @angular/cli
+Run npm install
+
 
 ## Development server
 
@@ -14,14 +25,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Production server
+Run node server.js to run the application
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
