@@ -16,6 +16,7 @@ html5
 css, ssas
 jquery
 bootstrap
+Google places API
 
 
 ## BE stack
@@ -38,6 +39,11 @@ So the Expedia App uses the data flow as follows:
 User requests the page on the browser with chosing some search filters
 --> browser executes an angular http ajax request to the backend
 --> the backend validates the inputs and makes some data transformation then calls expedia offers API.
+
+* I have noticed that the images of the hotels are in low resolution, so I replaced the suffix of the link with _y instead of _t
+* I made an integration with google places API to get the destination location.
+* I made and integration with Date range picker library to help in picking a right date range.
+
 
 The application that I have developed is so simple and missing many things to be taken into consideration like:
 
