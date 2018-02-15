@@ -1,12 +1,12 @@
 Expedia Hotels Offers App
 
 In this project I'am using multiple technologies to achieve the development stack. The main idea was to spearate the FE from the BE for many reasons includeing:
-1- Only the requests that matter the BE side will reach the backend server, and only the requests that matter the FE will reach the FE.
-2- Let the FE server worry about handling the assets and FE relevant load.
-3- More scalable, we usually need less FE servers on production than BE servers.
-4- BE this way can support multiple clients like FE, mobile, ..etc.
-5- Easier to move to the Microservices architecture.
-6- Separating the development stack allows us to let more people specialized in something to work without worrying about things he/she doesn't care about (easier for team management).
+* Only the requests that matter the BE side will reach the backend server, and only the requests that matter the FE will reach the FE.
+* Let the FE server worry about handling the assets and FE relevant load.
+* More scalable, we usually need less FE servers on production than BE servers.
+* BE this way can support multiple clients like FE, mobile, ..etc.
+* Easier to move to the Microservices architecture.
+* Separating the development stack allows us to let more people specialized in something to work without worrying about things he/she doesn't care about (easier for team management).
 
 
 ## FE stack
